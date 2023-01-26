@@ -287,7 +287,9 @@ class JwtAuth{
                     'estado'=>$ta->estado,
                     'titulo'=>$ta->titulo,
                     'parrafo'=>$ta->parrafo,
-                    'disponibles'=>$ta->disponibles
+                    'disponibles'=>$ta->disponibles,
+                    'usuario'=>$ta->usuario,
+                    'fecha'=>$ta->fecha
                 );
                 array_push($token, $token1);
             }
