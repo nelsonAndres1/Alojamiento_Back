@@ -65,6 +65,7 @@ class TiposalojaController extends Controller
                 );
             } else {
 
+                
                 $hoy = date("Y-m-d");
                 $tiposaloja = new Tiposaloja();
                 $tiposaloja->detalle = $params_array['detalle'];
