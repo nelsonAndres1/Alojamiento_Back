@@ -131,4 +131,28 @@ class TaralojaController extends Controller
         return response()->json($signup, 200);
     }
 
+
+    public function getTarifas(Request $request){
+        $jwtAuth = new \JwtAuth();
+
+        $json = $request->input('json', null);
+        $params = json_decode($json);
+        $params_array = json_decode($json, true);
+
+        $validate = Validator::make($params_array, [
+            'id'=>'required'
+        ]);
+        if($validate->fails()){
+            $signup = array(
+                'status' => 'error',
+                'code'   => 404,
+                'message' => 'No!',
+                'errors' => $validate->errors()
+            );
+        }else{
+            $signup = $jwtAuth->getTarifas($params_array['id']);
+        }
+        return response()->json($signup, 200);
+    }
+
 }

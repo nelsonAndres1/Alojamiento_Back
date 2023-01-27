@@ -306,6 +306,32 @@ class JwtAuth{
 
         return $data;
     }
+
+    public function getTarifas($id){
+        $taraloja = Taraloja::where('tiposaloja_id', $id)->get();
+        $token = array();
+        if(sizeof($taraloja)>0){
+            foreach($taraloja as $ta){
+                $token1 = array(
+                    'tarA'=>number_format($ta->tarA),
+                    'tarB'=>number_format($ta->tarB),
+                    'tarC'=>number_format($ta->tarC),
+                    'tarD'=>number_format($ta->tarD),
+                    'tarE'=>number_format($ta->tarE),
+                );
+                $token = $token1;
+            }
+        }else{
+            $token = array(
+                'status' => 'error',
+                'message' => 'Datos no encontrados'
+            );
+        }
+        $jwt = JWT::encode($token, $this->key, 'HS256');
+        $decoded = JWT::decode($jwt, $this->key, ['HS256']); 
+        $data = $decoded;
+        return $data;
+    }
     public function getAll_taraloja(){
 
         $taraloja = Taraloja::all();

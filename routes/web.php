@@ -22,6 +22,9 @@ Route::post('/api/register',[App\Http\Controllers\Gener02Controller::class,'regi
 Route::post('/api/login',[App\Http\Controllers\Gener02Controller::class,'login']);
 Route::post('/api/taraloja/register',[App\Http\Controllers\TaralojaController::class,'register']);
 Route::post('/api/taraloja/getAll_tarloja',[App\Http\Controllers\TaralojaController::class,'getAll_tarloja']);
+Route::post('/api/taraloja/getTarifas',[App\Http\Controllers\TaralojaController::class,'getTarifas']);
 
 Route::post('/api/tiposaloja/getAll_tiposaloja',[App\Http\Controllers\TiposalojaController::class,'getAll_tiposaloja']);
 Route::post('/api/tiposaloja/register',[App\Http\Controllers\TiposalojaController::class,'register']);
+
+
