@@ -28,3 +28,7 @@ Route::post('/api/tiposaloja/getAll_tiposaloja',[App\Http\Controllers\Tiposaloja
 Route::post('/api/tiposaloja/register',[App\Http\Controllers\TiposalojaController::class,'register']);
 
 
+Route::post('/api/subsi15/getCategoria',[App\Http\Controllers\Subsi15Controller::class,'getCategoria']);
+
+
+
